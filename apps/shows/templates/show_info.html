@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+  {% block content %}
+    <div class="jumbotron" style="margin-right: 25px">
+      <h1>{{ show.title }}</h1>
+    </div>
+    <div class="card" style="width: 18rem;">
+      <div class="card-header">
+        {{ show.title }}
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">id: {{show.id}}</li>
+        <li class="list-group-item">Network: {{show.network.name}}</li>
+        <li class="list-group-item">Debut: {{show.debut}}</li>
+        <li class="list-group-item">{{ show.desc }}</li>
+      </ul>
+      <div class="card-body">
+        <a href="/shows/{{show.id}}/edit" class="card-link">Update Info</a>
+        <span style="color: grey; font-weight: 100;"> | </span>
+        <a href="/shows/{{show.id}}/destroy" class="card-link">Delete Show</a>
+        <span style="color: grey; font-weight: 100;"> | </span>
+        <a href="/" class="card-link">Home</a>
+      </div>
+    </div>
+  {% endblock content %}

@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+  {% block content %}
+    <div class="jumbotron" style="margin-right: 25px">
+      <h1>Edit Show</h1>
+    </div>
+    <form action="/shows/{{show.id}}/update" method="post" style="margin-right: 25px">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="title">Show Title:</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{show.title}}">
+      </div>
+      <div class="form-group">
+        <label class="my-1 mr-2" for="network">Add Network</label>
+          <select class="custom-select my-1 mr-sm-2" id="network" name="network">
+            <option>Choose...</option>
+            {% for network in networks %}
+              {% if network.id == show.network.id %}
+                <option value="{{ network.id }}" selected>
+                  {{ network.name }}
+                </option>
+              {% else %}
+                <option value="{{ network.id }}">
+                  {{ network.name }}
+                </option>
+              {% endif %}
+            {% endfor %}
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="desc">Show Description</label>
+        <textarea class="form-control" id="desc" name="desc" rows="5">{{show.desc}}</textarea>
+      </div>
+      <input class="form-control" id="date" name="debut" type="date" value="{{debut}}">
+      <button type="submit" class="btn btn-primary mb-2">submit</button>
+    </form>
+    <p>
+      <a href="/shows/{{show.id}}/destroy">Delete Show?</a>
+      <span style="color: grey; font-weight: 100;"> | </span>
+      <a href="/" class="card-link">Home</a>
+      <span style="color: grey; font-weight: 100;"> | </span>
+      <a href="/shows/{{show.id}}">Return to {{show.title}} Info</a>
+    </p>
+  {% endblock content %}
