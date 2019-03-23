@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+  {% block content %}
+    <div class="jumbotron" style="margin-right: 25px">
+      <h1>Shows</h1>
+    </div>
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Network</th>
+          <th scope="col">Release Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for show in shows %}
+        <tr>
+          <td>{{show.id}}</td>
+          <td>{{show.title}}</td>
+          <td>{{show.network}}</td>
+          <td>{{show.debut}}</td>
+          <td>Actions</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endblock content %}
