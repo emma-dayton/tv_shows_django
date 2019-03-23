@@ -2,6 +2,8 @@
 In this assignment from Coding Dojo I will be further practicing Django routing
 and trying to meet RESTful naming conventions of my routes for a full CRUD application.
 
+Updated on 3/23 to add validation to models and error messaging to create/edit show pages.
+
 Routes:
 * /shows - GET - method should return a template that displays all the shows in a table
 * /shows/new- GET - method should return a template containing the form for adding a new TV show

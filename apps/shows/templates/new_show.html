@@ -8,23 +8,51 @@
       <div class="form-group">
         <label for="title">Show Title</label>
         <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+        {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              {% if 'title' in message.tags %} <li class="{{ message.tags }}">{{ message }}</li>{% endif %}
+              {% endfor %}
+          </ul>
+        {% endif %}
       </div>
       <div class="form-group">
         <label class="my-1 mr-2" for="network">Add Network</label>
           <select class="custom-select my-1 mr-sm-2" id="network" name="network">
-            <option selected>Choose...</option>
+            <option value ="0" selected>Choose...</option>
             {% for network in networks %}
               <option value="{{ network.id }}">
                 {{ network.name }}
               </option>
             {% endfor %}
           </select>
+          {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                {% if 'network' in message.tags %} <li class="{{ message.tags }}">{{ message }}</li>{% endif %}
+                {% endfor %}
+            </ul>
+          {% endif %}
       </div>
       <div class="form-group">
         <label for="desc">Show Description</label>
         <textarea class="form-control" id="desc" name="desc" rows="5"></textarea>
+        {% if messages %}
+          <ul class="messages">
+              {% for message in messages %}
+              {% if 'desc' in message.tags %} <li class="{{ message.tags }}">{{ message }}</li>{% endif %}
+              {% endfor %}
+          </ul>
+        {% endif %}
       </div>
       <input class="form-control" id="date" name="debut" type="date">
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            {% if 'debut' in message.tags %} <li class="{{ message.tags }}">{{ message }}</li>{% endif %}
+            {% endfor %}
+        </ul>
+      {% endif %}
       <button type="submit" class="btn btn-primary mb-2">submit</button>
     </form>
     <a href="/" class="card-link">Home</a>
