@@ -1,4 +1,4 @@
-# TV Shows
+# Semi-Restful TV Shows
 In this assignment from Coding Dojo I will be further practicing Django routing
 and trying to meet RESTful naming conventions of my routes for a full CRUD application.
 
